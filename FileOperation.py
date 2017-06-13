@@ -12,3 +12,4 @@ for line in file:
         sum=sum+list[1]
 
 print("Average spam confidence:", sum/count)
+filename.close()
