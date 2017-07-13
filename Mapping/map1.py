@@ -18,7 +18,8 @@ def colorcoding(ele):
 for la, lo, el in zip(lat,lon,elev):
     #fg.add_child(folium.Marker(location=[la,lo], popup=str(el)+" m", icon=folium.Icon(color=colorcoding(el))))
     fg.add_child(folium.CircleMarker(location=[la,lo], radius=4, popup=str(el)+" m",color=colorcoding(el)))
-fg.add_child(folium.GeoJson(data=open("world.json","r", encoding="utf-8-sig"), style_function=lambda x:{'fillColor':"yellow" if x['properties']['POP2005']<1000000
+fg.add_child(folium.GeoJson(data=open("world.json","r", encoding="utf-8-sig"),
+style_function=lambda x:{'fillColor':"yellow" if x['properties']['POP2005']<1000000
 else "orange" if 1000000<=x['properties']['POP2005']<2000000 else "red"}))
 map.add_child(fg)
 map.save("Map1.html")
